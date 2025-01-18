@@ -1,18 +1,22 @@
 import CalculatorButton from '@/components/CalculatorButton'
 import CustomText from '@/components/CustomText'
 import { Colors } from '@/constants/Colors'
+import { useCalculator } from '@/hooks/useCalculator'
 import { golbalStyles } from '@/styles/global-styles'
 import { View } from 'react-native'
 
 const CalculatorScreen = () => {
 
+  const { formula, buildNumber, clean } = useCalculator()
+
   return (
     <View style={golbalStyles.calculatorContainer}>
       <View style={{
         paddingBottom: 20,
+        paddingHorizontal: 30,
       }}>
-        <CustomText variant='h1'>20 x 12</CustomText>
-        <CustomText variant='h2'> 250 </CustomText>
+        <CustomText variant='h1'>{ formula }</CustomText>
+        <CustomText variant='h2'>250</CustomText>
       </View>
 
 
@@ -21,7 +25,7 @@ const CalculatorScreen = () => {
       <View style={golbalStyles.row}>
         <CalculatorButton
           label='C'
-          onPress={() => console.log('C')}
+          onPress={clean}
           textColor={Colors.darkGray}
           bgColor={Colors.lightGray}
         />
@@ -46,20 +50,20 @@ const CalculatorScreen = () => {
       <View style={golbalStyles.row}>
         <CalculatorButton
           label='7'
-          onPress={() => console.log('7')}
+          onPress={() => buildNumber('7')}
           textColor={Colors.textPrimary}
           bgColor={Colors.darkGray}
           
         />
         <CalculatorButton
           label='8'
-          onPress={() => console.log('8')}
+          onPress={() => buildNumber('8')}
           textColor={Colors.textPrimary}
           bgColor={Colors.darkGray}
         />
         <CalculatorButton
           label='9'
-          onPress={() => console.log('9')}
+          onPress={() => buildNumber('9')}
           textColor={Colors.textPrimary}
           bgColor={Colors.darkGray}
         />
@@ -72,19 +76,19 @@ const CalculatorScreen = () => {
       <View style={golbalStyles.row}>
         <CalculatorButton
           label='4'
-          onPress={() => console.log('4')}
+          onPress={() => buildNumber('4')}
           textColor={Colors.textPrimary}
           bgColor={Colors.darkGray}
         />
         <CalculatorButton
           label='5'
-          onPress={() => console.log('5')}
+          onPress={() => buildNumber('5')}
           textColor={Colors.textPrimary}
           bgColor={Colors.darkGray}
         />
         <CalculatorButton
           label='6'
-          onPress={() => console.log('6')}
+          onPress={() => buildNumber('6')}
           textColor={Colors.textPrimary}
           bgColor={Colors.darkGray}
         />
@@ -97,19 +101,19 @@ const CalculatorScreen = () => {
       <View style={golbalStyles.row}>
         <CalculatorButton
           label='1'
-          onPress={() => console.log('1')}
+          onPress={() => buildNumber('1')}
           textColor={Colors.textPrimary}
           bgColor={Colors.darkGray}
         />
         <CalculatorButton
           label='2'
-          onPress={() => console.log('2')}
+          onPress={() => buildNumber('2')}
           textColor={Colors.textPrimary}
           bgColor={Colors.darkGray}
         />
         <CalculatorButton
           label='3'
-          onPress={() => console.log('3')}
+          onPress={() => buildNumber('3')}
           textColor={Colors.textPrimary}
           bgColor={Colors.darkGray}
         />
@@ -122,14 +126,14 @@ const CalculatorScreen = () => {
       <View style={golbalStyles.row}>
         <CalculatorButton
           label='0'
-          onPress={() => console.log('1')}
+          onPress={() => buildNumber('0')}
           textColor={Colors.textPrimary}
           bgColor={Colors.darkGray}
           columns={2.16}
         />
         <CalculatorButton
           label='.'
-          onPress={() => console.log('2')}
+          onPress={() => buildNumber('.')}
           textColor={Colors.textPrimary}
           bgColor={Colors.darkGray}
         />
