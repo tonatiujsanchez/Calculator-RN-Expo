@@ -7,7 +7,7 @@ import { View } from 'react-native'
 
 const CalculatorScreen = () => {
 
-  const { formula, buildNumber, clean } = useCalculator()
+  const { formula, buildNumber, clean, toggleSign } = useCalculator()
 
   return (
     <View style={golbalStyles.calculatorContainer}>
@@ -31,7 +31,7 @@ const CalculatorScreen = () => {
         />
         <CalculatorButton
           label='+/-'
-          onPress={() => console.log('+/-')}
+          onPress={toggleSign}
           textColor={Colors.darkGray}
           bgColor={Colors.lightGray}
         />

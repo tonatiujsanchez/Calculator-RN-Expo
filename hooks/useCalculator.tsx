@@ -30,6 +30,19 @@ export const useCalculator = () => {
     lastOperation.current = undefined
   }
 
+  const toggleSign = () => {
+
+    if( number === '0' ){
+      return
+    }
+
+    if( number.includes('-') ){
+      return setNumber( number.replace('-', '') )
+    }
+
+    setNumber( '-' + number )
+  }
+
   const buildNumber = (numberString: string) => {
     
     // Verificar y hay un punto decimal
@@ -66,5 +79,6 @@ export const useCalculator = () => {
     // Methods
     buildNumber,
     clean,
+    toggleSign,
   }
 }
