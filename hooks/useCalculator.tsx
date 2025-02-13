@@ -43,6 +43,25 @@ export const useCalculator = () => {
     setNumber( '-' + number )
   }
 
+  const deleteLast = ()=> {
+
+    if(number === '0'){
+      return
+    }
+
+    if(number.length === 2 && number.includes('-')) {
+      return setNumber('0')
+    }
+
+    if( number.length === 1 ){
+      return setNumber('0')
+    }
+
+    const newNumber = number.split('').slice(0, -1).join('')
+    setNumber(newNumber)
+
+  }
+
   const buildNumber = (numberString: string) => {
     
     // Verificar y hay un punto decimal
@@ -80,5 +99,6 @@ export const useCalculator = () => {
     buildNumber,
     clean,
     toggleSign,
+    deleteLast,
   }
 }
